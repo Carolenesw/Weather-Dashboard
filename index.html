@@ -25,32 +25,36 @@
       </div>
     </div>
     <!-- This is were we will input data on our city search location -->
-    <form id="city-search">
-      <label for="search-input">Search for a City:</label>
-      <div class="input-group mb-3">
-        <input type="text" id="search-input" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button id="btn" type="button">Button</button>
+    <div class="row">
+      <div class="col-md-6">
+        <form id="city-search">
+          <label for="search-input">Search for a City:</label>
+          <div class="input-group mb-3">
+            <input type="text" id="search-input" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button id="btn" type="button">Button</button>
 
-        </div>
-       
+            </div>
+
+          </div>
+        </form>
       </div>
-    </form>
-
-    <!-- This will hold the current weather information  -->
-    <section id="current-city">
-      <div class="city"></div>
-      <div class="date"></div>
-      <div class="temp"></div>
-      <div class="humidity"></div>
-      <div class="wind"></div>
-      <div class="UV"></div>
-      <div class="img"></div>
-    </section>
-
+      <!-- This will hold the current weather information  -->
+      <div class="col-md-6">
+        <section id="current-city">
+          <div class="city"></div>
+          <div class="date"></div>
+          <div class="temp"></div>
+          <div class="humidity"></div>
+          <div class="wind"></div>
+          <div class="UV"></div>
+          <div class="img"></div>
+        </section>
+      </div>
+    </div>
   </div>
 
-    <script src="./weather.js"></script>
+  <script src="./weather.js"></script>
 </body>
 
 </html>
