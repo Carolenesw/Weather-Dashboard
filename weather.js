@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-
+//create variables for selection 
   var citySearch = $("#city-search");
   var searchArea = $("#search-input");
   var btnSearch = $("#btn");
@@ -14,11 +14,11 @@ $(document).ready(function () {
   var imgN = $(".img");
   searchArea = "";
 
+  // use moment.js to get date format
   var d = moment().format('L');
 
   console.log(d);
 
-  var ciytInfo
 
   //API key to run database
   var APIKey = "351b80106cd356a907301219dd0c7806";
