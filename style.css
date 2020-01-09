@@ -1,0 +1,17 @@
+.jumbotron {
+color: white;
+background-color: black;
+text-align: center;
+border: 30px;
+padding: 5px;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#city-search {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 0;
+  padding: 0px;
+ 
+}
