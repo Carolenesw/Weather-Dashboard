@@ -24,7 +24,29 @@
         <h1 class="display-4">Weather Dashboard</h1>
       </div>
     </div>
+    <!-- This is were we will input data on our city search location -->
+    <form id="city-search">
+      <label for="search-input">Search for a City:</label>
+      <div class="input-group mb-3">
+        <input type="text" id="search-input" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
+      </div>
+    </form>
 
-</body>
+    <!-- This will hold the current weather information  -->
+    <section class="current city">
+      <div class="city"></div>
+      <div class="date"></div>
+      <div class="temp"></div>
+      <div class="wind"></div>
+      <div class="UV"></div>
+      <div class="img"></div>
+    </section>
 
+
+
+
+  </body>
 </html>
