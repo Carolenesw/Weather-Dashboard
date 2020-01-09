@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link rel="stylesheet" text="text/css" href="style.css">
+
+  <script src="/Users/carolenesw/Desktop/Directory /Library/moment.min.js"></script>
 </head>
 
 <body>
@@ -28,24 +30,25 @@
       <div class="input-group mb-3">
         <input type="text" id="search-input" aria-describedby="basic-addon2">
         <div class="input-group-append">
-          <button class="btn" type="button">Button</button>
+          <button id="btn" type="button">Button</button>
 
         </div>
-        </div>
+       
       </div>
     </form>
 
     <!-- This will hold the current weather information  -->
-    <section class="current-city">
+    <section id="current-city">
       <div class="city"></div>
       <div class="date"></div>
       <div class="temp"></div>
+      <div class="humidity"></div>
       <div class="wind"></div>
       <div class="UV"></div>
       <div class="img"></div>
     </section>
 
-
+  </div>
 
     <script src="./weather.js"></script>
 </body>
