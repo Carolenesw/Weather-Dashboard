@@ -53,17 +53,21 @@ $(document).ready(function () {
         localStorage.setItem("cityName", searchArea); 
         // localStorage.setItem("TempS", response.main.temp);
         localStorage.setItem("Temperature: ", response.wind.speed + " F");
+        localStorage.setItem("Humidity: ", response.main.humidity);
         // localStorage.setItem("Wind Speed: " + response.wind.speed + " MPH");
         localStorage.setItem("Wind Speed: ", response.wind.speed + " MPH");
+        
+
 
 
         $(".city").text(response.name + " " + "(" + d + ")");
         $(".img").text("Icon: " + response.main.icon);
-        // //$(".humidity").text("Humidity: ");
+        
         // // var temp = localStorage.getItem("Temperature:");
         // console.log("Temp: "+temp);
         // $(".temp").text("Temperature:" +temp);
         $(".temp").text("Temperature: " + response.main.temp + " F");
+        $(".humidity").text("Humidity: " + response.main.humidity);
         $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
         $(".UV").text("UV Index: ");
 
