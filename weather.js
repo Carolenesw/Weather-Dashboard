@@ -18,7 +18,8 @@ $(document).ready(function () {
   var cityButton = $("#city-button");
 
   // use moment.js to get date format
-  var d = moment().format('L');
+  var d = moment().format('LLLL');
+    $(".date").append(d);
 
   console.log(d);
   console.log(cityArray);
