@@ -64,7 +64,8 @@ renderButton();
       .then(function (response) {
         console.log(response);
         //Stored data to local storage 2314567890- 
-        localStorage.setItem("cityName", searchArea + " " + "(" + d + ")");        localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
+        localStorage.setItem("cityName", searchArea);        
+        localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
 
@@ -96,11 +97,6 @@ console.log("")
     localStorage.setItem("cityArray", JSON.stringify(cityArray));
     console.log(cityArray);
 
-    
-
-
-    // $("#search-input").text(cityName);
-
 
     // AJAX call to the run OpenWeatherMap API for 5 days forecast 
     // var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?id=" + searchArea + "&units=imperial&appid=" + APIKey;
@@ -129,25 +125,31 @@ console.log("")
 
   function renderWeather (response) {
     var city = response.name;
-    // var imgSource = "http://openweathermap.org/img/wn/" + response.weather[2].icon+".png>";
     var temp = response.main.temp;
     var humidity = response.main.humidity;
     var windSpeed = response.wind.speed;
 
-    var cityLable = city + " (" + d + ")";
+    var cityLable = city;
     var tempLable = "Temperature: " + temp + " F";
     var humLable = "Humidity: " + humidity;
     var windLable = "Wind Speed: " + windSpeed + " MPH";
 
+    //call variables to show data changes 
     cityName.text(cityLable);
+    tempS.text(tempLable);
+    humRead.text(humLable);
+    windS.text(windLable);
 
-    
+    // var imgSource = "http://openweathermap.org/img/wn/" + response.weather[2].icon+".png>";
     // + "<img src=\"http://openweathermap.org/img/wn/"+ response.weather[2].icon+".png>\"");
         
-        $(".temp").text(tempLable);
-        $(".humidity").text(humLable);
-        $(".wind").text(windLable);
-        $(".UV").text("UV Index: ");
+        // $(".temp").text(tempLable);
+        // $(".humidity").text(humLable);
+        // $(".wind").text(windLable);
+        // $(".UV").text("UV Index: ");
   }
+
+  // var weatherIcon = "<img src=\"http://openweathermap.org/img/wn/" + response.weather[2].icon +".png>\"";
+  // console.log(weatherIcon);
 });
 

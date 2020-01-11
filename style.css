@@ -17,13 +17,24 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 #btn {
-  border: 10px;
-  border: solid gainsboro;
+  /* border: 10px;
+  border: solid gainsboro; */
+  border-radius: 2px;
+  display:inline-block;
+  padding: 5px 5px;
+  margin: 0 5px 5px 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 50;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
 }
 
-#search-input {
+/* #search-input {
   border: solid gainsboro;
-}
+} */
 
 #current-city {
   margin-left: 0;
