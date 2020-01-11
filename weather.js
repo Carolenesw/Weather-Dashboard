@@ -12,7 +12,7 @@ $(document).ready(function () {
   var humRead = $(".humidity")
   var uvIdex = $(".UV");
   var weatherImg = $(".img");
-  var cityArray = [];
+  var cityArray = JSON.parse(localStorage.getItem("cityArray")) || [];
   var searchInput = $("#search-input");
   //searchArea = "";
   var cityButton = $("#city-button");
@@ -27,7 +27,7 @@ $(document).ready(function () {
   var APIKey = "351b80106cd356a907301219dd0c7806";
 
 
-
+renderButton();
 
   //console.log(queryURL);
 
@@ -64,19 +64,13 @@ $(document).ready(function () {
       .then(function (response) {
         console.log(response);
         //Stored data to local storage 2314567890- 
-        // localStorage.setItem("cityName", searchArea + " " + "(" + d + ")" + <img src="http://openweathermap.org/img/wn/"+ response.weather[2].icon+".png">");
-        localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
+        localStorage.setItem("cityName", searchArea + " " + "(" + d + ")");        localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
 
-
+console.log("")
         //show search results on html page  
-        $(".city").text(response.name + " " + "(" + d + ")");
-        $(".img").text("Icon: " + response.main.icon);
-        $(".temp").text("Temperature: " + response.main.temp + " F");
-        $(".humidity").text("Humidity: " + response.main.humidity);
-        $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
-        $(".UV").text("UV Index: ");
+        renderWeather(response);
 
         // userSelection.push(searchAread)
         // console.log(userSelection);
@@ -109,16 +103,16 @@ $(document).ready(function () {
 
 
     // AJAX call to the run OpenWeatherMap API for 5 days forecast 
-    var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?id=" + searchArea + "&units=imperial&appid=" + APIKey;
+    // var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?id=" + searchArea + "&units=imperial&appid=" + APIKey;
 
-    $.ajax({ 
-      url: queryURLd,
-      method: "GET"
-    })
-    // We store all of the retrieved data inside of an object called "response" and add required items and variables 
-    .then(function (response) {
-      console.log(response);
-    });
+    // $.ajax({ 
+    //   url: queryURLd,
+    //   method: "GET"
+    // })
+    // // We store all of the retrieved data inside of an object called "response" and add required items and variables 
+    // .then(function (response) {
+    //   console.log(response);
+    // });
 
   });
 
@@ -129,12 +123,31 @@ $(document).ready(function () {
       var button = $("<button>");
       button.text(cityArray[i]);
       cityButton.prepend(button);
+      
     }
   }
 
+  function renderWeather (response) {
+    var city = response.name;
+    // var imgSource = "http://openweathermap.org/img/wn/" + response.weather[2].icon+".png>";
+    var temp = response.main.temp;
+    var humidity = response.main.humidity;
+    var windSpeed = response.wind.speed;
 
+    var cityLable = city + " (" + d + ")";
+    var tempLable = "Temperature: " + temp + " F";
+    var humLable = "Humidity: " + humidity;
+    var windLable = "Wind Speed: " + windSpeed + " MPH";
 
-  // api.openweathermap.org/data/2.5/forecast?id=524901
+    cityName.text(cityLable);
 
+    
+    // + "<img src=\"http://openweathermap.org/img/wn/"+ response.weather[2].icon+".png>\"");
+        
+        $(".temp").text(tempLable);
+        $(".humidity").text(humLable);
+        $(".wind").text(windLable);
+        $(".UV").text("UV Index: ");
+  }
 });
 
