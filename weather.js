@@ -11,21 +11,23 @@ $(document).ready(function () {
   var tempS = $(".temp");
   var humRead = $(".humidity")
   var uvIdex = $(".UV");
-  var imgN = $(".img");
+  var weatherImg = $(".img");
   var cityArray = [];
+  var searchInput = $("#search-input");
   //searchArea = "";
+  var cityButton = $("#city-button");
 
   // use moment.js to get date format
   var d = moment().format('L');
 
   console.log(d);
-
+  console.log(cityArray);
 
   //API key to run database
   var APIKey = "351b80106cd356a907301219dd0c7806";
 
 
-  // AJAX call to the run OpenWeatherMap API
+
 
   //console.log(queryURL);
 
@@ -46,16 +48,13 @@ $(document).ready(function () {
   //second example
   // tempS.text(localStorage.getItem("temperature"))
 
+  // AJAX call to the run OpenWeatherMap API for current weather 
   $("#btn").on("click", function (event) {
     event.preventDefault();
 
     // This line get the info from the text area
     searchArea = $("#search-input").val().trim();
-    
-    // console.log(cityName)
-
-
-
+  
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchArea + "&units=imperial&appid=" + APIKey;
     $.ajax({
       url: queryURL,
@@ -64,13 +63,10 @@ $(document).ready(function () {
       // We store all of the retrieved data inside of an object called "response" and add required items and variables 
       .then(function (response) {
         console.log(response);
-        //Stored data to local storage 
-        localStorage.setItem("cityName", searchArea + " " + "(" + d + ")");
-        // localStorage.setItem("TempS", response.main.temp);
+        //Stored data to local storage 2314567890- 
+        // localStorage.setItem("cityName", searchArea + " " + "(" + d + ")" + <img src="http://openweathermap.org/img/wn/"+ response.weather[2].icon+".png">");
         localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
-        // localStorage.setItem("Humidity: ", response.main.humidity);
-        // localStorage.setItem("Wind Speed: " + response.wind.speed + " MPH");
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
 
 
@@ -82,19 +78,63 @@ $(document).ready(function () {
         $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
         $(".UV").text("UV Index: ");
 
-cityName.push(searchArea)
-// $("#search-input").append(searchArea);
+        // userSelection.push(searchAread)
+        // console.log(userSelection);
+        // cityName.push(storedCity);
+        // $("#search-input").append(cityName);
 
 
-        // userSelection = response.cityName
+        // var userSelection = "";
+        // console.log(userSelection)
+        // userSelection.slice(searchArea);
+
         // for (var i = 0; i < cityName.length; i++) {
         //   console.log(userSelection);
 
         // }
       });
 
+    // stored user city selection in a empty array
+
+    cityArray.push(searchArea);
+    renderButton();
+    // localStorage.setItem("city", searchArea).text(JSON.stringify(cityName));
+    localStorage.setItem("cityArray", JSON.stringify(cityArray));
+    console.log(cityArray);
+
+    
+
+
+    // $("#search-input").text(cityName);
+
+
+    // AJAX call to the run OpenWeatherMap API for 5 days forecast 
+    var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?id=" + searchArea + "&units=imperial&appid=" + APIKey;
+
+    $.ajax({ 
+      url: queryURLd,
+      method: "GET"
+    })
+    // We store all of the retrieved data inside of an object called "response" and add required items and variables 
+    .then(function (response) {
+      console.log(response);
+    });
 
   });
+
+//create function to to save city search by looping then prepend each button selected 
+  function renderButton() {
+    cityButton.empty();
+    for (var i = 0; i < cityArray.length; i++) {
+      var button = $("<button>");
+      button.text(cityArray[i]);
+      cityButton.prepend(button);
+    }
+  }
+
+
+
+  // api.openweathermap.org/data/2.5/forecast?id=524901
 
 });
 
