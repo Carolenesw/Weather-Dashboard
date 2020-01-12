@@ -16,6 +16,7 @@ $(document).ready(function () {
   var searchInput = $("#search-input");
   //searchArea = "";
   var cityButton = $("#city-button");
+  var weatherIcon = new Skycons
 
   // use moment.js to get date format
   var d = moment().format('LLLL');
@@ -64,25 +65,15 @@ $(document).ready(function () {
       // We store all of the retrieved data inside of an object called "response" and add required items and variables 
       .then(function (response) {
         console.log(response);
-        //Stored data to local storage 2314567890- 
+        //Stored data to local storage 
         localStorage.setItem("cityName", searchArea);
         localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
-
-        console.log("")
+        // weatherIcon.play()
+        
         //show search results on html page  
         renderWeather(response);
-
-        // userSelection.push(searchAread)
-        // console.log(userSelection);
-        // cityName.push(storedCity);
-        // $("#search-input").append(cityName);
-
-
-        // var userSelection = "";
-        // console.log(userSelection)
-        // userSelection.slice(searchArea);
 
         // for (var i = 0; i < cityName.length; i++) {
         //   console.log(userSelection);
@@ -99,16 +90,22 @@ $(document).ready(function () {
 
 
     // AJAX call to the run OpenWeatherMap API for 5 days forecast 
-    // var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?id=" + searchArea + "&units=imperial&appid=" + APIKey;
+    var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchArea + "&units=imperial&appid=" + APIKey;
 
-    // $.ajax({ 
-    //   url: queryURLd,
-    //   method: "GET"
-    // })
-    // // We store all of the retrieved data inside of an object called "response" and add required items and variables 
-    // .then(function (response) {
-    //   console.log(response);
-    // });
+    $.ajax({ 
+      url: queryURLd,
+      method: "GET"
+      
+    })
+    // // We store all of the retrieved data inside of an object called "data" and add required items and variables 
+    .then(function (data) {
+      console.log(data);
+
+      // localStorage.setItem("cityName", searchArea);
+      //   localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
+      //   localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
+      //   localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
+    });
 
   });
 
@@ -128,11 +125,12 @@ $(document).ready(function () {
     var temp = response.main.temp;
     var humidity = response.main.humidity;
     var windSpeed = response.wind.speed;
-
+    
     var cityLable = city;
     var tempLable = "Temperature: " + temp + " F";
     var humLable = "Humidity: " + humidity;
     var windLable = "Wind Speed: " + windSpeed + " MPH";
+    
 
     //call variables to show data changes 
     cityName.text(cityLable);
@@ -149,7 +147,6 @@ $(document).ready(function () {
     // $(".UV").text("UV Index: ");
   }
 
-  // var weatherIcon = <img src=\"http://openweathermap.org/img/wn/" + $(response.weather[2].icon) +".png>\" ;
-  // console.log(weatherIcon);
+  
 });
 
