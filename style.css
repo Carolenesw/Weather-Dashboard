@@ -53,8 +53,20 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#forecast {
+.forecast {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 500;
   font-size: 20px;
+}
+
+.badge1 .badge2 .badge3 .badge4 .badge5 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 100;
+  color: #ffffff;
+  margin: 5px;
+  width:200px;
+  height: 80px;
+  padding: 10px;
+  border: 5PX solid whitesmoke;
+  background-color: powderblue;
 }
