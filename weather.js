@@ -101,11 +101,17 @@ $(document).ready(function () {
       console.log(data);
       console.log(data.list[0]);
 
-      // for (var i = 0; i < data[0].length; i++) {
-      //   console.log(data[0].length[i]);
+      
 
-      // }
+      var dayOne = $(".badge1");
+      var dayTwo = $(".badge2");
 
+var dayAhead = moment().format('L');
+  $(".badge1").append(dayAhead);
+  $(".badge2").append(dayAhead);
+  $(".badge3").append(dayAhead);
+  $(".badge4").append(dayAhead);
+  $(".badge5").append(dayAhead);
   });
 
         // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
