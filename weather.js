@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   // use moment.js to get date format
   var d = moment().format('LLLL');
-    $(".date").append(d);
+  $(".date").append(d);
 
   console.log(d);
   console.log(cityArray);
@@ -28,7 +28,7 @@ $(document).ready(function () {
   var APIKey = "351b80106cd356a907301219dd0c7806";
 
 
-renderButton();
+  renderButton();
 
   //console.log(queryURL);
 
@@ -55,7 +55,7 @@ renderButton();
 
     // This line get the info from the text area
     searchArea = $("#search-input").val().trim();
-  
+
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchArea + "&units=imperial&appid=" + APIKey;
     $.ajax({
       url: queryURL,
@@ -65,12 +65,12 @@ renderButton();
       .then(function (response) {
         console.log(response);
         //Stored data to local storage 2314567890- 
-        localStorage.setItem("cityName", searchArea);        
+        localStorage.setItem("cityName", searchArea);
         localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
 
-console.log("")
+        console.log("")
         //show search results on html page  
         renderWeather(response);
 
@@ -94,7 +94,6 @@ console.log("")
 
     cityArray.push(searchArea);
     renderButton();
-    // localStorage.setItem("city", searchArea).text(JSON.stringify(cityName));
     localStorage.setItem("cityArray", JSON.stringify(cityArray));
     console.log(cityArray);
 
@@ -113,18 +112,18 @@ console.log("")
 
   });
 
-//create function to to save city search by looping then prepend each button selected 
+  //create function to to save city search by looping then prepend each button selected 
   function renderButton() {
     cityButton.empty();
     for (var i = 0; i < cityArray.length; i++) {
       var button = $("<button>");
       button.text(cityArray[i]);
       cityButton.prepend(button);
-      
+
     }
   }
 
-  function renderWeather (response) {
+  function renderWeather(response) {
     var city = response.name;
     var temp = response.main.temp;
     var humidity = response.main.humidity;
@@ -143,14 +142,14 @@ console.log("")
 
     // var imgSource = "http://openweathermap.org/img/wn/" + response.weather[2].icon+".png>";
     // + "<img src=\"http://openweathermap.org/img/wn/"+ response.weather[2].icon+".png>\"");
-        
-        // $(".temp").text(tempLable);
-        // $(".humidity").text(humLable);
-        // $(".wind").text(windLable);
-        // $(".UV").text("UV Index: ");
+
+    // $(".temp").text(tempLable);
+    // $(".humidity").text(humLable);
+    // $(".wind").text(windLable);
+    // $(".UV").text("UV Index: ");
   }
 
-  // var weatherIcon = "<img src=\"http://openweathermap.org/img/wn/" + response.weather[2].icon +".png>\"";
+  // var weatherIcon = <img src=\"http://openweathermap.org/img/wn/" + $(response.weather[2].icon) +".png>\" ;
   // console.log(weatherIcon);
 });
 
