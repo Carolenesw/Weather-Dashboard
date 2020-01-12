@@ -99,12 +99,13 @@ $(document).ready(function () {
     // // We store all of the retrieved data inside of an object called "data" and add required items and variables 
     .then(function (data) {
       console.log(data);
+      console.log(data.list[0]);
 
       // for (var i = 0; i < data[0].length; i++) {
       //   console.log(data[0].length[i]);
 
       // }
-      
+
   });
 
         // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
