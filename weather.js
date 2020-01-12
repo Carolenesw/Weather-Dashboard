@@ -71,11 +71,11 @@ $(document).ready(function () {
         localStorage.setItem("humidity", "Humidity: " + response.main.humidity + "%");
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
         // weatherIcon.play()
-        
+
         //show search results on html page  
         renderWeather(response);
 
-        
+
       });
 
     // stored user city selection in a empty array
@@ -91,55 +91,72 @@ $(document).ready(function () {
 
     var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchArea + "&units=imperial&appid=" + APIKey + "&cnt=5";
 
-    $.ajax({ 
+    $.ajax({
       url: queryURLd,
       method: "GET"
-      
+
     })
-    // // We store all of the retrieved data inside of an object called "data" and add required items and variables 
-    .then(function (data) {
-      console.log(data);
-      console.log(data.list[0]);
-      console.log(data.list[1]);
-      console.log(data.list[2]);
-      console.log(data.list[3]);
-      console.log(data.list[4]);
+      // // We store all of the retrieved data inside of an object called "data" and add required items and variables 
+      .then(function (data) {
+        console.log(data);
+        console.log(data.list[0]);
+        console.log(data.list[1]);
+        console.log(data.list[2]);
+        console.log(data.list[3]);
+        console.log(data.list[4]);
 
 
 
-      var dayOne = $(".badge1");
-      var dayTwo = $(".badge2");
+        var dayOne = $(".badge1");
+        var dayTwo = $(".badge2");
 
-var dayAhead = moment().format('L');
-  $(".badge1").append(dayAhead);
-  $(".badge2").append(dayAhead);
-  $(".badge3").append(dayAhead);
-  $(".badge4").append(dayAhead);
-  $(".badge5").append(dayAhead);
+        var dayAhead = moment().format('L');
+        $(".badge1").append(dayAhead);
+        $(".badge2").append(dayAhead);
+        $(".badge3").append(dayAhead);
+        $(".badge4").append(dayAhead);
+        $(".badge5").append(dayAhead);
 
-//set five day forcast data to local storage 
-//day one data 
-localStorage.setItem("temp", "Temp: " + data.list[0].main.temp + " F");
-localStorage.setItem("humid", "humid: " + data.list[0].main.humidity + "%");
-//day two data
-localStorage.setItem("temp1", "Temp1: " + data.list[1].main.temp + " F");
-localStorage.setItem("humid1", "humid1: " + data.list[1].main.humidity + "%");
-//day three data 
-localStorage.setItem("temp2", "Temp2: " + data.list[2].main.temp + " F");
-localStorage.setItem("humid2", "humid2: " + data.list[2].main.humidity + "%");
-//day four data 
-localStorage.setItem("temp3", "Temp3: " + data.list[3].main.temp + " F");
-localStorage.setItem("humid3", "humid3: " + data.list[3].main.humidity + "%");
-//day five data 
-localStorage.setItem("temp4", "Temp4: " + data.list[4].main.temp + " F");
-localStorage.setItem("humid4", "humid4: " + data.list[4].main.humidity + "%");
+        //set five day forcast data to local storage 
+        //day one data 
+        localStorage.setItem("temp", "Temp: " + data.list[0].main.temp + " F");
+        localStorage.setItem("humid", "humid: " + data.list[0].main.humidity + "%");
+        //day two data
+        localStorage.setItem("temp1", "Temp1: " + data.list[1].main.temp + " F");
+        localStorage.setItem("humid1", "humid1: " + data.list[1].main.humidity + "%");
+        //day three data 
+        localStorage.setItem("temp2", "Temp2: " + data.list[2].main.temp + " F");
+        localStorage.setItem("humid2", "humid2: " + data.list[2].main.humidity + "%");
+        //day four data 
+        localStorage.setItem("temp3", "Temp3: " + data.list[3].main.temp + " F");
+        localStorage.setItem("humid3", "humid3: " + data.list[3].main.humidity + "%");
+        //day five data 
+        localStorage.setItem("temp4", "Temp4: " + data.list[4].main.temp + " F");
+        localStorage.setItem("humid4", "humid4: " + data.list[4].main.humidity + "%");
 
-  });
+        //append data from local storage to respective badge 
+        $(".badge1").append("Temp: " + data.list[0].main.temp + " F");
+        $(".badge1").append("Humid: " + data.list[0].main.humidity + "%");
 
-        // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
-        // localStorage.setItem("humid", "Humid: " + data.main.humidity + "%");
+        $(".badge2").append("Temp: " + data.list[1].main.temp + " F");
+        $(".badge2").append("Humid: " + data.list[1].main.humidity + "%");
 
-        //create a loop to set response to only cuurent time instead of three hours
+        $(".badge3").append("Temp: " + data.list[2].main.temp + " F");
+        $(".badge3").append("Humid: " + data.list[2].main.humidity + "%");
+
+        $(".badge4").append("Temp: " + data.list[3].main.temp + " F");
+        $(".badge4").append("Humid: " + data.list[3].main.humidity + "%");
+
+        $(".badge5").append("Temp: " + data.list[4].main.temp + " F");
+        $(".badge5").append("Humid: " + data.list[4].main.humidity + "%");
+
+
+      });
+
+    // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
+    // localStorage.setItem("humid", "Humid: " + data.main.humidity + "%");
+
+    //create a loop to set response to only cuurent time instead of three hours
 
 
 
@@ -161,12 +178,12 @@ localStorage.setItem("humid4", "humid4: " + data.list[4].main.humidity + "%");
     var temp = response.main.temp;
     var humidity = response.main.humidity;
     var windSpeed = response.wind.speed;
-    
+
     var cityLable = city;
     var tempLable = "Temperature: " + temp + " F";
-    var humLable = "Humidity: " + humidity + "%"; 
+    var humLable = "Humidity: " + humidity + "%";
     var windLable = "Wind Speed: " + windSpeed + " MPH";
-    
+
 
     //call variables to show data changes 
     cityName.text(cityLable);
@@ -183,6 +200,6 @@ localStorage.setItem("humid4", "humid4: " + data.list[4].main.humidity + "%");
     // $(".UV").text("UV Index: ");
   }
 
-  
+
 });
 
