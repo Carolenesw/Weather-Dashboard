@@ -94,11 +94,10 @@ $(document).ready(function () {
         console.log(data.list[3]);
         console.log(data.list[4]);
 
-
-
         var dayOne = $(".badge1");
         var dayTwo = $(".badge2");
 
+        //create future date for forecast
         var dayAhead = moment().format('L');
         $(".badge1").append(dayAhead);
         $(".badge2").append(dayAhead);
@@ -108,10 +107,10 @@ $(document).ready(function () {
 
         //set five day forcast data to local storage 
         //day one data 
-        localStorage.setItem("temp", "Temp: " + data.list[0].main.temp +"F" + "");
+        localStorage.setItem("temp", "Temp: " + data.list[0].main.temp + "F" + "");
         localStorage.setItem("humid", "humid: " + data.list[0].main.humidity + "%");
         //day two data
-        localStorage.setItem("temp1", "Temp1: " + data.list[1].main.temp +"F" + "");
+        localStorage.setItem("temp1", "Temp1: " + data.list[1].main.temp + "F" + "");
         localStorage.setItem("humid1", "humid1: " + data.list[1].main.humidity + "%");
         //day three data 
         localStorage.setItem("temp2", "Temp2: " + data.list[2].main.temp + "F" + "");
@@ -143,7 +142,6 @@ $(document).ready(function () {
       });
     //create a loop to set response to only cuurent time instead of three hours
   });
-
   //create function to to save city search by looping then prepend each button selected 
   function renderButton() {
     cityButton.empty();
