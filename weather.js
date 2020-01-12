@@ -68,7 +68,7 @@ $(document).ready(function () {
         //Stored data to local storage 
         localStorage.setItem("cityName", searchArea);
         localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
-        localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
+        localStorage.setItem("humidity", "Humidity: " + response.main.humidity + "%");
         localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
         // weatherIcon.play()
         
@@ -101,10 +101,9 @@ $(document).ready(function () {
     .then(function (data) {
       console.log(data);
 
-      // localStorage.setItem("cityName", searchArea);
-      //   localStorage.setItem("temperature", "Temperature: " + response.main.temp + " F");
-      //   localStorage.setItem("humidity", "Humidity: " + response.main.humidity);
-      //   localStorage.setItem("wind speed", "Wind-Speed: " + response.wind.speed + " MPH");
+        localStorage.setItem("temperature", "Temp: " + response.main.temp + " F");
+        localStorage.setItem("humidity", "Humidity: " + response.main.humidity + "%");
+        
     });
 
   });
@@ -128,7 +127,7 @@ $(document).ready(function () {
     
     var cityLable = city;
     var tempLable = "Temperature: " + temp + " F";
-    var humLable = "Humidity: " + humidity;
+    var humLable = "Humidity: " + humidity + "%"; 
     var windLable = "Wind Speed: " + windSpeed + " MPH";
     
 

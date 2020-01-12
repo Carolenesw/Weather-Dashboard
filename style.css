@@ -36,9 +36,13 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 #current-city {
   margin-left: 0;
-  border: solid 5px gray;
+  margin: 20px;
+  border: 5px gray;
+  border-bottom: solid azure;
+  border-top: solid azure;
+  border-left: solid azure;;
   text-align: left;
-  padding: 5px;
+  padding: 20px;
   line-height: 1cm;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 500;
@@ -47,4 +51,10 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 #city-button {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#forecast {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 500;
+  font-size: 20px;
 }
