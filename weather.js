@@ -100,8 +100,12 @@ $(document).ready(function () {
     .then(function (data) {
       console.log(data);
       console.log(data.list[0]);
+      console.log(data.list[1]);
+      console.log(data.list[2]);
+      console.log(data.list[3]);
+      console.log(data.list[4]);
 
-      
+
 
       var dayOne = $(".badge1");
       var dayTwo = $(".badge2");
@@ -112,6 +116,24 @@ var dayAhead = moment().format('L');
   $(".badge3").append(dayAhead);
   $(".badge4").append(dayAhead);
   $(".badge5").append(dayAhead);
+
+//set five day forcast data to local storage 
+//day one data 
+localStorage.setItem("temp", "Temp: " + data.list[0].main.temp + " F");
+localStorage.setItem("humid", "humid: " + data.list[0].main.humidity + "%");
+//day two data
+localStorage.setItem("temp1", "Temp1: " + data.list[1].main.temp + " F");
+localStorage.setItem("humid1", "humid1: " + data.list[1].main.humidity + "%");
+//day three data 
+localStorage.setItem("temp2", "Temp2: " + data.list[2].main.temp + " F");
+localStorage.setItem("humid2", "humid2: " + data.list[2].main.humidity + "%");
+//day four data 
+localStorage.setItem("temp3", "Temp3: " + data.list[3].main.temp + " F");
+localStorage.setItem("humid3", "humid3: " + data.list[3].main.humidity + "%");
+//day five data 
+localStorage.setItem("temp4", "Temp4: " + data.list[4].main.temp + " F");
+localStorage.setItem("humid4", "humid4: " + data.list[4].main.humidity + "%");
+
   });
 
         // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
