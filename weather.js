@@ -75,10 +75,7 @@ $(document).ready(function () {
         //show search results on html page  
         renderWeather(response);
 
-        // for (var i = 0; i < cityName.length; i++) {
-        //   console.log(userSelection);
-
-        // }
+        
       });
 
     // stored user city selection in a empty array
@@ -90,7 +87,9 @@ $(document).ready(function () {
 
 
     // AJAX call to the run OpenWeatherMap API for 5 days forecast 
-    var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchArea + "&units=imperial&appid=" + APIKey;
+    // var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchArea + "&units=imperial&appid=" + APIKey;
+
+    var queryURLd = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchArea + "&units=imperial&appid=" + APIKey + "&cnt=5";
 
     $.ajax({ 
       url: queryURLd,
@@ -101,10 +100,19 @@ $(document).ready(function () {
     .then(function (data) {
       console.log(data);
 
-        localStorage.setItem("temperature", "Temp: " + response.main.temp + " F");
-        localStorage.setItem("humidity", "Humidity: " + response.main.humidity + "%");
-        
-    });
+      // for (var i = 0; i < data[0].length; i++) {
+      //   console.log(data[0].length[i]);
+
+      // }
+      
+  });
+
+        // localStorage.setItem("temp", "Temp: " + data.main.temp + " F");
+        // localStorage.setItem("humid", "Humid: " + data.main.humidity + "%");
+
+        //create a loop to set response to only cuurent time instead of three hours
+
+
 
   });
 
