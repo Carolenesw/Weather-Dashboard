@@ -115,17 +115,17 @@ $(document).ready(function () {
         localStorage.setItem("humid1", "humid1: " + data.list[6].main.humidity + "%");
         localStorage.setItem("time", "Time: " + data.list[6].dt_txt);
         //day three data 
-        localStorage.setItem("temp2", "Temp2: " + data.list[12].main.temp + "F" + "");
-        localStorage.setItem("humid2", "humid2: " + data.list[12].main.humidity + "%");
-        localStorage.setItem("time", "Time: " + data.list[12].dt_txt);
+        localStorage.setItem("temp2", "Temp2: " + data.list[14].main.temp + "F" + "");
+        localStorage.setItem("humid2", "humid2: " + data.list[14].main.humidity + "%");
+        localStorage.setItem("time", "Time: " + data.list[14].dt_txt);
         //day four data 
-        localStorage.setItem("temp3", "Temp3: " + data.list[18].main.temp + "F" + "");
-        localStorage.setItem("humid3", "humid3: " + data.list[18].main.humidity + "%");
-        localStorage.setItem("time", "Time: " + data.list[18].dt_txt);
+        localStorage.setItem("temp3", "Temp3: " + data.list[22].main.temp + "F" + "");
+        localStorage.setItem("humid3", "humid3: " + data.list[22].main.humidity + "%");
+        localStorage.setItem("time", "Time: " + data.list[22].dt_txt);
         //day five data 
-        localStorage.setItem("temp4", "Temp4: " + data.list[24].main.temp + "F" + "");
-        localStorage.setItem("humid4", "humid4: " + data.list[24].main.humidity + "%");
-        localStorage.setItem("time", "Time: " + data.list[24].dt_txt);
+        localStorage.setItem("temp4", "Temp4: " + data.list[30].main.temp + "F" + "");
+        localStorage.setItem("humid4", "humid4: " + data.list[30].main.humidity + "%");
+        localStorage.setItem("time", "Time: " + data.list[30].dt_txt);
 
         //append data from local storage to respective badge 
         $(".badge1").append("Temp: " + data.list[0].main.temp + "F" + "");
